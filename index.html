@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Heart Link | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Cairo',sans-serif;
+}
+
+body{
+  background:#0b0b0f;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* الخلفية المتحركة */
+.animated-bg{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  overflow:hidden;
+}
+
+.animated-bg span{
+  position:absolute;
+  width:60px;
+  height:60px;
+  background:linear-gradient(45deg,#ff4ecd,#6a5cff);
+  opacity:0.25;
+  border-radius:50%;
+  animation:float 20s infinite linear;
+}
+
+.animated-bg span:nth-child(1){left:10%;animation-duration:18s;}
+.animated-bg span:nth-child(2){left:30%;width:100px;height:100px;animation-duration:22s;}
+.animated-bg span:nth-child(3){left:55%;animation-duration:26s;}
+.animated-bg span:nth-child(4){left:80%;width:80px;height:80px;animation-duration:24s;}
+
+@keyframes float{
+  0%{transform:translateY(110vh) rotate(0deg);}
+  100%{transform:translateY(-10vh) rotate(360deg);}
+}
+
+/* الهيدر */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:20px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(10px);
+  z-index:100;
+}
+
+header h1{
+  color:#ff4ecd;
+  font-size:26px;
+}
+
+nav a{
+  color:#fff;
+  margin-right:20px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+
+nav a:hover{color:#ff4ecd;}
+
+/* الأقسام */
+section{
+  min-height:100vh;
+  padding:120px 60px;
+}
+
+.hero{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h2{
+  font-size:3.2rem;
+  margin-bottom:20px;
+}
+
+.hero p{
+  max-width:650px;
+  line-height:1.9;
+  opacity:.9;
+}
+
+.buttons a{
+  display:inline-block;
+  margin:15px;
+  padding:14px 36px;
+  border-radius:30px;
+  background:linear-gradient(45deg,#ff4ecd,#6a5cff);
+  color:#fff;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.buttons a:hover{transform:scale(1.08);}
+
+/* من أنا */
+.about{text-align:center;}
+
+.about h2{
+  font-size:2.6rem;
+  margin-bottom:20px;
+}
+
+.about p{
+  max-width:700px;
+  margin:auto;
+  line-height:1.9;
+}
+
+.skills{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.skill{
+  background:rgba(255,255,255,0.08);
+  margin:10px;
+  padding:20px 32px;
+  border-radius:20px;
+  transition:.3s;
+}
+
+.skill:hover{
+  transform:translateY(-10px);
+  background:linear-gradient(45deg,#ff4ecd,#6a5cff);
+}
+
+/* الخدمات */
+.services{text-align:center;}
+
+.services h2{
+  font-size:2.6rem;
+  margin-bottom:40px;
+}
+
+.cards{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:30px;
+}
+
+.card{
+  width:260px;
+  height:200px;
+  perspective:1000px;
+}
+
+.card-inner{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform .8s;
+}
+
+.card:hover .card-inner{
+  transform:rotateY(180deg);
+}
+
+.card-front,
+.card-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  backface-visibility:hidden;
+  padding:20px;
+  font-weight:600;
+}
+
+.card-front{background:rgba(255,255,255,0.08);}
+.card-back{
+  background:linear-gradient(45deg,#ff4ecd,#6a5cff);
+  transform:rotateY(180deg);
+}
+
+/* تواصل */
+.contact{text-align:center;}
+
+.contact h2{
+  font-size:2.6rem;
+  margin-bottom:20px;
+}
+
+form{
+  max-width:420px;
+  margin:30px auto;
+}
+
+form input,
+form textarea{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border:none;
+  border-radius:10px;
+}
+
+form button{
+  padding:14px 34px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#ff4ecd,#6a5cff);
+  color:#fff;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* أيقونات التواصل */
+.social-fixed{
+  position:fixed;
+  left:20px;
+  bottom:20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:200;
+}
+
+.social-fixed a{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:24px;
+  color:#fff;
+}
+
+.whatsapp{background:#25D366;}
+.telegram{background:#0088cc;}
+</style>
+</head>
+
+<body>
+
+<div class="animated-bg">
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<header>
+  <h1>Heart Link</h1>
+  <nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#about">من أنا</a>
+    <a href="#services">خدماتي</a>
+    <a href="#contact">تواصل</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h2>مش مجرد موقع… دي حكاية</h2>
+  <p>
+    في Heart Link بنصمم مواقع حب ومواقع احترافية  
+    نخلي فكرتك تتحول لتجربة تتحس قبل ما تتشاف
+  </p>
+  <div class="buttons">
+    <a href="#services">خدماتي</a>
+    <a href="#contact">تواصل معايا</a>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h2>من أنا</h2>
+  <p>
+    أنا مصمم مواقع بحب التفاصيل  
+    بفهم الإحساس قبل الكود  
+    وبصنع مواقع تسيب أثر حقيقي
+  </p>
+
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">UI / UX</div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <h2>خدماتي</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">💖 مواقع حب</div>
+        <div class="card-back">تصميم يوصل إحساس</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">💻 Portfolio</div>
+        <div class="card-back">عرض شغلك باحتراف</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">🏢 مواقع بيزنس</div>
+        <div class="card-back">مواقع رسمية فخمة</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>تواصل معي</h2>
+  <p>خلّي فكرتك تبدأ من هنا ❤️</p>
+
+  <!-- الفورم مربوط بالإيميل -->
+  <form action="https://formsubmit.co/ziadaltab13@gmial.com" method="POST">
+    <input type="text" name="name" placeholder="اسمك" required>
+    <input type="email" name="email" placeholder="الإيميل" required>
+    <textarea name="message" rows="4" placeholder="رسالتك" required></textarea>
+
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+    <button type="submit">إرسال</button>
+  </form>
+</section>
+
+<div class="social-fixed">
+  <a class="whatsapp" href="https://wa.me/201283122901" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a class="telegram" href="https://t.me/01283122901" target="_blank">
+    <i class="fab fa-telegram"></i>
+  </a>
+</div>
+
+<script>
+document.querySelectorAll('nav a').forEach(link=>{
+  link.onclick=e=>{
+    e.preventDefault();
+    document.querySelector(link.getAttribute('href'))
+      .scrollIntoView({behavior:'smooth'});
+  }
+});
+</script>
+
+</body>
+</html>
+
