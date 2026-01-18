@@ -25,13 +25,10 @@ body{
   overflow-x:hidden;
 }
 
-/* الخلفية المتحركة */
+/* ===== الخلفية المتحركة ===== */
 .animated-bg{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  inset:0;
   z-index:-1;
   overflow:hidden;
 }
@@ -56,7 +53,7 @@ body{
   100%{transform:translateY(-10vh) rotate(360deg);}
 }
 
-/* الهيدر */
+/* ===== الهيدر ===== */
 header{
   position:fixed;
   top:0;
@@ -85,7 +82,7 @@ nav a{
 
 nav a:hover{color:#ff4ecd;}
 
-/* الأقسام */
+/* ===== الأقسام ===== */
 section{
   min-height:100vh;
   padding:120px 60px;
@@ -123,7 +120,7 @@ section{
 
 .buttons a:hover{transform:scale(1.08);}
 
-/* من أنا */
+/* ===== من أنا ===== */
 .about{text-align:center;}
 
 .about h2{
@@ -157,7 +154,7 @@ section{
   background:linear-gradient(45deg,#ff4ecd,#6a5cff);
 }
 
-/* الخدمات */
+/* ===== الخدمات ===== */
 .services{text-align:center;}
 
 .services h2{
@@ -193,8 +190,7 @@ section{
 .card-front,
 .card-back{
   position:absolute;
-  width:100%;
-  height:100%;
+  inset:0;
   border-radius:20px;
   display:flex;
   justify-content:center;
@@ -211,7 +207,7 @@ section{
   transform:rotateY(180deg);
 }
 
-/* تواصل */
+/* ===== تواصل ===== */
 .contact{text-align:center;}
 
 .contact h2{
@@ -231,6 +227,7 @@ form textarea{
   margin:10px 0;
   border:none;
   border-radius:10px;
+  outline:none;
 }
 
 form button{
@@ -243,7 +240,7 @@ form button{
   font-weight:600;
 }
 
-/* أيقونات التواصل */
+/* ===== أيقونات التواصل ===== */
 .social-fixed{
   position:fixed;
   left:20px;
@@ -342,8 +339,8 @@ form button{
   <h2>تواصل معي</h2>
   <p>خلّي فكرتك تبدأ من هنا ❤️</p>
 
-  <!-- الفورم مربوط بالإيميل -->
-  <form action="https://formsubmit.co/ziadaltab13@gmial.com" method="POST">
+  <!-- الفورم مربوط بالإيميل الصحيح -->
+  <form action="https://formsubmit.co/ziadaltab13@gmail.com" method="POST">
     <input type="text" name="name" placeholder="اسمك" required>
     <input type="email" name="email" placeholder="الإيميل" required>
     <textarea name="message" rows="4" placeholder="رسالتك" required></textarea>
@@ -376,4 +373,3 @@ document.querySelectorAll('nav a').forEach(link=>{
 
 </body>
 </html>
-
